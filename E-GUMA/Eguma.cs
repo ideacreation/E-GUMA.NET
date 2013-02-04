@@ -156,7 +156,8 @@ namespace EGUMA
             var statusCode = response.StatusCode;
 
             if (statusCode == HttpStatusCode.BadRequest ||
-                statusCode == HttpStatusCode.InternalServerError)
+                statusCode == HttpStatusCode.InternalServerError ||
+                statusCode == HttpStatusCode.Unauthorized)
             {
                 using (var streamReader = new StreamReader(response.GetResponseStream()))
                 {
