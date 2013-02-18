@@ -54,10 +54,31 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.labelDepotActivateAmount = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.buttonActivate = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.textBoxCodeDepot = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.labelDepotDeactivateAmount = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.buttonDeactivate = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.buttonOpenActivateDlg = new System.Windows.Forms.Button();
+            this.buttonRedeemVoucher = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -77,6 +98,7 @@
             this.textBoxCode.Name = "textBoxCode";
             this.textBoxCode.Size = new System.Drawing.Size(274, 29);
             this.textBoxCode.TabIndex = 3;
+            this.textBoxCode.Text = "JWCP-P7QV-25S4";
             // 
             // label1
             // 
@@ -313,11 +335,183 @@
             this.panel1.Size = new System.Drawing.Size(195, 225);
             this.panel1.TabIndex = 23;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel5.Controls.Add(this.labelDepotActivateAmount);
+            this.panel5.Controls.Add(this.label13);
+            this.panel5.Controls.Add(this.buttonActivate);
+            this.panel5.Controls.Add(this.label11);
+            this.panel5.Location = new System.Drawing.Point(12, 374);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(180, 224);
+            this.panel5.TabIndex = 27;
+            // 
+            // labelDepotActivateAmount
+            // 
+            this.labelDepotActivateAmount.AutoSize = true;
+            this.labelDepotActivateAmount.Location = new System.Drawing.Point(67, 94);
+            this.labelDepotActivateAmount.Name = "labelDepotActivateAmount";
+            this.labelDepotActivateAmount.Size = new System.Drawing.Size(0, 13);
+            this.labelDepotActivateAmount.TabIndex = 22;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(17, 94);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(46, 13);
+            this.label13.TabIndex = 21;
+            this.label13.Text = "Amount:";
+            // 
+            // buttonActivate
+            // 
+            this.buttonActivate.Location = new System.Drawing.Point(16, 57);
+            this.buttonActivate.Name = "buttonActivate";
+            this.buttonActivate.Size = new System.Drawing.Size(75, 23);
+            this.buttonActivate.TabIndex = 20;
+            this.buttonActivate.Text = "OK";
+            this.buttonActivate.UseVisualStyleBackColor = true;
+            this.buttonActivate.Click += new System.EventHandler(this.buttonActivate_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(16, 11);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(75, 24);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "Activate";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel6.Controls.Add(this.textBoxCodeDepot);
+            this.panel6.Controls.Add(this.label12);
+            this.panel6.Location = new System.Drawing.Point(12, 316);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(586, 49);
+            this.panel6.TabIndex = 27;
+            // 
+            // textBoxCodeDepot
+            // 
+            this.textBoxCodeDepot.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCodeDepot.Location = new System.Drawing.Point(145, 11);
+            this.textBoxCodeDepot.Name = "textBoxCodeDepot";
+            this.textBoxCodeDepot.Size = new System.Drawing.Size(274, 29);
+            this.textBoxCodeDepot.TabIndex = 3;
+            this.textBoxCodeDepot.Text = "CDHE2JNT5LS9";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(13, 13);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(128, 24);
+            this.label12.TabIndex = 21;
+            this.label12.Text = "Code (Depot):";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel7.Controls.Add(this.labelDepotDeactivateAmount);
+            this.panel7.Controls.Add(this.label15);
+            this.panel7.Controls.Add(this.buttonDeactivate);
+            this.panel7.Controls.Add(this.label16);
+            this.panel7.Location = new System.Drawing.Point(208, 374);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(180, 224);
+            this.panel7.TabIndex = 28;
+            // 
+            // labelDepotDeactivateAmount
+            // 
+            this.labelDepotDeactivateAmount.AutoSize = true;
+            this.labelDepotDeactivateAmount.Location = new System.Drawing.Point(67, 94);
+            this.labelDepotDeactivateAmount.Name = "labelDepotDeactivateAmount";
+            this.labelDepotDeactivateAmount.Size = new System.Drawing.Size(0, 13);
+            this.labelDepotDeactivateAmount.TabIndex = 22;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(17, 94);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(46, 13);
+            this.label15.TabIndex = 21;
+            this.label15.Text = "Amount:";
+            // 
+            // buttonDeactivate
+            // 
+            this.buttonDeactivate.Location = new System.Drawing.Point(16, 57);
+            this.buttonDeactivate.Name = "buttonDeactivate";
+            this.buttonDeactivate.Size = new System.Drawing.Size(75, 23);
+            this.buttonDeactivate.TabIndex = 20;
+            this.buttonDeactivate.Text = "OK";
+            this.buttonDeactivate.UseVisualStyleBackColor = true;
+            this.buttonDeactivate.Click += new System.EventHandler(this.buttonDeactivate_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(16, 11);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(96, 24);
+            this.label16.TabIndex = 19;
+            this.label16.Text = "Deactivate";
+            // 
+            // buttonOpenActivateDlg
+            // 
+            this.buttonOpenActivateDlg.Location = new System.Drawing.Point(20, 105);
+            this.buttonOpenActivateDlg.Name = "buttonOpenActivateDlg";
+            this.buttonOpenActivateDlg.Size = new System.Drawing.Size(130, 34);
+            this.buttonOpenActivateDlg.TabIndex = 29;
+            this.buttonOpenActivateDlg.Text = "Gutschein aktivieren";
+            this.buttonOpenActivateDlg.UseVisualStyleBackColor = true;
+            this.buttonOpenActivateDlg.Click += new System.EventHandler(this.buttonOpenActivateDlg_Click);
+            // 
+            // buttonRedeemVoucher
+            // 
+            this.buttonRedeemVoucher.Location = new System.Drawing.Point(20, 55);
+            this.buttonRedeemVoucher.Name = "buttonRedeemVoucher";
+            this.buttonRedeemVoucher.Size = new System.Drawing.Size(130, 34);
+            this.buttonRedeemVoucher.TabIndex = 30;
+            this.buttonRedeemVoucher.Text = "Gutschein einlösen";
+            this.buttonRedeemVoucher.UseVisualStyleBackColor = true;
+            this.buttonRedeemVoucher.Click += new System.EventHandler(this.buttonRedeemVoucher_Click);
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel8.Controls.Add(this.label14);
+            this.panel8.Controls.Add(this.buttonRedeemVoucher);
+            this.panel8.Controls.Add(this.buttonOpenActivateDlg);
+            this.panel8.Location = new System.Drawing.Point(616, 67);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(185, 224);
+            this.panel8.TabIndex = 31;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(17, 11);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(149, 24);
+            this.label14.TabIndex = 21;
+            this.label14.Text = "Mock-up dialogs";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(614, 309);
+            this.ClientSize = new System.Drawing.Size(821, 608);
+            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -332,6 +526,14 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -364,6 +566,23 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button buttonActivate;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TextBox textBoxCodeDepot;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label labelDepotActivateAmount;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label labelDepotDeactivateAmount;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button buttonDeactivate;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button buttonOpenActivateDlg;
+        private System.Windows.Forms.Button buttonRedeemVoucher;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label14;
 
     }
 }

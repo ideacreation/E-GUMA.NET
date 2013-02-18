@@ -45,17 +45,38 @@ namespace EGUMA
             public int BalanceInCents { get; set; }
         }
 
-        public string BaseUri { get; set; }
-        private readonly string _apiKey;
+        [DataContract]
+        public class ActivateResult
+        {
+            [DataMember(Name = "code")]
+            public string Code { get; set; }
+
+            [DataMember(Name = "amount_in_cents")]
+            public int AmountInCents { get; set; }
+        }
+
+        [DataContract]
+        public class DeactivateResult
+        {
+            [DataMember(Name = "code")]
+            public string Code { get; set; }
+
+            [DataMember(Name = "amount_in_cents")]
+            public int AmountInCents { get; set; }
+        }
+
+
+        public string BaseUrl { get; set; }
+        public string ApiKey { get; set; }
 
         public Eguma(string apiKey)
         {
-            BaseUri = "https://api.e-guma.ch";
+            BaseUrl = "https://api.e-guma.ch";
 
             if (string.IsNullOrEmpty(apiKey))
                 throw new ArgumentException("Please set an API Key.");
 
-            _apiKey = apiKey;
+            ApiKey = apiKey;
         }
 
         public static decimal ConvertCentsToFrancs(int cents)
@@ -75,7 +96,7 @@ namespace EGUMA
                 client.Encoding = Encoding.UTF8;
 
                 // example url: https://api.e-guma.ch/v1/vouchers/KSK3-L8VE-TSR5/balance.json?apikey=510e32c594d84816a4af9df0
-                var url = string.Format("{0}/v1/vouchers/{1}/balance.json?apikey={2}", BaseUri, voucherCode, _apiKey);
+                var url = string.Format("{0}/v1/vouchers/{1}/balance.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
 
                 try
                 {
@@ -102,7 +123,7 @@ namespace EGUMA
                 var postData = string.Format("amount_in_cents={0}", amountInCents);
 
                 // example url: https://api.e-guma.ch/v1/vouchers/KSK3-L8VE-TSR5/redeem.json?apikey=510e32c594d84816a4af9df0
-                var url = string.Format("{0}/v1/vouchers/{1}/redeem.json?apikey={2}", BaseUri, voucherCode, _apiKey);
+                var url = string.Format("{0}/v1/vouchers/{1}/redeem.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
 
                 try
                 {
@@ -129,7 +150,7 @@ namespace EGUMA
                 var postData = string.Format("amount_in_cents={0}", amountInCents);
 
                 // example url: https://api.e-guma.ch/v1/vouchers/KSK3-L8VE-TSR5/cancel_redemption.json?apikey=510e32c594d84816a4af9df0"
-                var url = string.Format("{0}/v1/vouchers/{1}/cancel_redemption.json?apikey={2}", BaseUri, voucherCode, _apiKey);
+                var url = string.Format("{0}/v1/vouchers/{1}/cancel_redemption.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
 
                 try
                 {
@@ -138,6 +159,54 @@ namespace EGUMA
                     using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(resultAsJsonString)))
                     {
                         return (CancelRedemptionResult)new DataContractJsonSerializer(typeof(CancelRedemptionResult)).ReadObject(stream);
+                    }
+                }
+                catch (WebException exception)
+                {
+                    HandleExceptions(exception);
+                    throw;
+                }
+            }
+        }
+
+        public ActivateResult ActivateDepotVoucher(string voucherCode)
+        {
+            using (var client = new WebClient())
+            {
+                // example url: https://api.e-guma.ch/v1/vouchers/KSK3-L8VE-TSR5/activate.json?apikey=510e32c594d84816a4af9df0"
+                var url = string.Format("{0}/v1/vouchers/{1}/activate.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
+
+                try
+                {
+                    var resultAsJsonString = client.UploadString(url, string.Empty);
+
+                    using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(resultAsJsonString)))
+                    {
+                        return (ActivateResult)new DataContractJsonSerializer(typeof(ActivateResult)).ReadObject(stream);
+                    }
+                }
+                catch (WebException exception)
+                {
+                    HandleExceptions(exception);
+                    throw;
+                }
+            }
+        }
+
+        public DeactivateResult DeactivateDepotVoucher(string voucherCode)
+        {
+            using (var client = new WebClient())
+            {
+                // example url: https://api.e-guma.ch/v1/vouchers/KSK3-L8VE-TSR5/deactivate.json?apikey=510e32c594d84816a4af9df0"
+                var url = string.Format("{0}/v1/vouchers/{1}/deactivate.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
+
+                try
+                {
+                    var resultAsJsonString = client.UploadString(url, string.Empty);
+
+                    using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(resultAsJsonString)))
+                    {
+                        return (DeactivateResult)new DataContractJsonSerializer(typeof(DeactivateResult)).ReadObject(stream);
                     }
                 }
                 catch (WebException exception)
