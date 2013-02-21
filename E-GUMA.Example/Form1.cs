@@ -89,6 +89,29 @@ namespace E_GUMA.Example
             }
         }
 
+        private void buttonDepotVoucherStatus_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var result = _eguma.GetDepotVoucherStatus(textBoxCodeDepot.Text);
+                labelDepotVoucherStatusAmount.Text = Eguma.ConvertCentsToFrancs(result.AmountInCents).ToString("F2");
+                labelDepotVouherStatusInDepot.Text = result.IsInDepot ? "Yes" : "No";
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
+        private void buttonOpenActivateDlg_Click(object sender, EventArgs e)
+        {
+            new ActivateDepotVoucherForm().Show();
+        }
+
+        private void buttonRedeemVoucher_Click(object sender, EventArgs e)
+        {
+            new RedeemVoucherForm().Show();
+        }
 
         // We only use this method when we want to test the E-GUMA API locally
         private void OverrideDefaultSettings()
@@ -118,16 +141,6 @@ namespace E_GUMA.Example
             {
                 textBoxCodeDepot.Text = System.Configuration.ConfigurationManager.AppSettings["ExampleDepotVoucherCode"];
             }
-        }
-
-        private void buttonOpenActivateDlg_Click(object sender, EventArgs e)
-        {
-            new ActivateDepotVoucherForm().Show();
-        }
-
-        private void buttonRedeemVoucher_Click(object sender, EventArgs e)
-        {
-            new RedeemVoucherForm().Show();
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Text;
 
 namespace EGUMA
 {
+    // When you copy this file to your project, ensure that System.Runtime.Serialization is added as reference.
     public class Eguma
     {
         [DataContract]
@@ -63,6 +64,19 @@ namespace EGUMA
 
             [DataMember(Name = "amount_in_cents")]
             public int AmountInCents { get; set; }
+        }
+
+        [DataContract]
+        public class DepotVoucherStatusResult
+        {
+            [DataMember(Name = "code")]
+            public string Code { get; set; }
+
+            [DataMember(Name = "amount_in_cents")]
+            public int AmountInCents { get; set; }
+
+            [DataMember(Name = "is_in_depot")]
+            public bool IsInDepot { get; set; }
         }
 
 
@@ -193,6 +207,34 @@ namespace EGUMA
             }
         }
 
+        // Only used for special implementations. Normally you should use 'ActivateDepotVoucher'
+        public ActivateResult ActivateDepotVoucherWithCustomAmount(string voucherCode, int amountInCents)
+        {
+            using (var client = new WebClient())
+            {
+                client.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+                var postData = string.Format("amount_in_cents={0}", amountInCents);
+
+                // example url: https://api.e-guma.ch/v1/vouchers/KSK3-L8VE-TSR5/activate.json?apikey=510e32c594d84816a4af9df0"
+                var url = string.Format("{0}/v1/vouchers/{1}/activate.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
+
+                try
+                {
+                    var resultAsJsonString = client.UploadString(url, postData);
+
+                    using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(resultAsJsonString)))
+                    {
+                        return (ActivateResult)new DataContractJsonSerializer(typeof(ActivateResult)).ReadObject(stream);
+                    }
+                }
+                catch (WebException exception)
+                {
+                    HandleExceptions(exception);
+                    throw;
+                }
+            }
+        }
+
         public DeactivateResult DeactivateDepotVoucher(string voucherCode)
         {
             using (var client = new WebClient())
@@ -207,6 +249,32 @@ namespace EGUMA
                     using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(resultAsJsonString)))
                     {
                         return (DeactivateResult)new DataContractJsonSerializer(typeof(DeactivateResult)).ReadObject(stream);
+                    }
+                }
+                catch (WebException exception)
+                {
+                    HandleExceptions(exception);
+                    throw;
+                }
+            }
+        }
+
+        public DepotVoucherStatusResult GetDepotVoucherStatus(string voucherCode)
+        {
+            using (var client = new WebClient())
+            {
+                // example url: https://api.e-guma.ch/v1/vouchers/KSK3-L8VE-TSR5/depot_status.json?apikey=510e32c594d84816a4af9df0"
+                var url = string.Format("{0}/v1/vouchers/{1}/depot_status.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
+
+                try
+                {
+                    var resultAsJsonString = client.DownloadString(url);
+
+                    using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(resultAsJsonString)))
+                    {
+                        return
+                            (DepotVoucherStatusResult)
+                            new DataContractJsonSerializer(typeof (DepotVoucherStatusResult)).ReadObject(stream);
                     }
                 }
                 catch (WebException exception)

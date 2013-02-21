@@ -71,6 +71,13 @@
             this.buttonRedeemVoucher = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.labelDepotVoucherStatusAmount = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.buttonDepotVoucherStatus = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.labelDepotVouherStatusInDepot = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -79,6 +86,7 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -133,7 +141,6 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.checkBalanceButton);
             this.panel3.Controls.Add(this.labelBalance);
@@ -222,7 +229,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.redeemButton);
@@ -323,7 +329,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.labelNewBalanceAfterCancelRedemption);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.buttonCancelRedemption);
@@ -503,11 +508,80 @@
             this.label14.TabIndex = 21;
             this.label14.Text = "Mock-up dialogs";
             // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel9.Controls.Add(this.labelDepotVouherStatusInDepot);
+            this.panel9.Controls.Add(this.label17);
+            this.panel9.Controls.Add(this.labelDepotVoucherStatusAmount);
+            this.panel9.Controls.Add(this.label18);
+            this.panel9.Controls.Add(this.buttonDepotVoucherStatus);
+            this.panel9.Controls.Add(this.label19);
+            this.panel9.Location = new System.Drawing.Point(403, 374);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(195, 224);
+            this.panel9.TabIndex = 29;
+            // 
+            // labelDepotVoucherStatusAmount
+            // 
+            this.labelDepotVoucherStatusAmount.AutoSize = true;
+            this.labelDepotVoucherStatusAmount.Location = new System.Drawing.Point(67, 94);
+            this.labelDepotVoucherStatusAmount.Name = "labelDepotVoucherStatusAmount";
+            this.labelDepotVoucherStatusAmount.Size = new System.Drawing.Size(0, 13);
+            this.labelDepotVoucherStatusAmount.TabIndex = 22;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(17, 94);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(46, 13);
+            this.label18.TabIndex = 21;
+            this.label18.Text = "Amount:";
+            // 
+            // buttonDepotVoucherStatus
+            // 
+            this.buttonDepotVoucherStatus.Location = new System.Drawing.Point(16, 57);
+            this.buttonDepotVoucherStatus.Name = "buttonDepotVoucherStatus";
+            this.buttonDepotVoucherStatus.Size = new System.Drawing.Size(75, 23);
+            this.buttonDepotVoucherStatus.TabIndex = 20;
+            this.buttonDepotVoucherStatus.Text = "OK";
+            this.buttonDepotVoucherStatus.UseVisualStyleBackColor = true;
+            this.buttonDepotVoucherStatus.Click += new System.EventHandler(this.buttonDepotVoucherStatus_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(16, 11);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(60, 24);
+            this.label19.TabIndex = 19;
+            this.label19.Text = "Status";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(13, 114);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(51, 13);
+            this.label17.TabIndex = 23;
+            this.label17.Text = "In Depot:";
+            // 
+            // labelDepotVouherStatusInDepot
+            // 
+            this.labelDepotVouherStatusInDepot.AutoSize = true;
+            this.labelDepotVouherStatusInDepot.Location = new System.Drawing.Point(66, 114);
+            this.labelDepotVouherStatusInDepot.Name = "labelDepotVouherStatusInDepot";
+            this.labelDepotVouherStatusInDepot.Size = new System.Drawing.Size(0, 13);
+            this.labelDepotVouherStatusInDepot.TabIndex = 24;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 608);
+            this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
@@ -534,6 +608,8 @@
             this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -583,6 +659,13 @@
         private System.Windows.Forms.Button buttonRedeemVoucher;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label labelDepotVouherStatusInDepot;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label labelDepotVoucherStatusAmount;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button buttonDepotVoucherStatus;
+        private System.Windows.Forms.Label label19;
 
     }
 }
