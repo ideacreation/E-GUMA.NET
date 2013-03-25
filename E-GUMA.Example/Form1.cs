@@ -24,6 +24,7 @@ namespace E_GUMA.Example
 
                 labelIsRedeemable.Text = result.IsRedeemable ? "Yes" : "No";
                 labelBalanceValue.Text = Eguma.ConvertCentsToFrancs(result.BalanceInCents).ToString("F2");
+                labelTotalAmountValue.Text = Eguma.ConvertCentsToFrancs(result.TotalAmountInCents).ToString("F2");
                 labelMessageValue.Text = result.Message;
             }
             catch (Exception exception)

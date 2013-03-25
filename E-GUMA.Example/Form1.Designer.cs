@@ -72,12 +72,14 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.labelDepotVouherStatusInDepot = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.labelDepotVoucherStatusAmount = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.buttonDepotVoucherStatus = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.labelDepotVouherStatusInDepot = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.labelTotalAmountValue = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -141,6 +143,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Controls.Add(this.labelTotalAmountValue);
+            this.panel3.Controls.Add(this.label20);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.checkBalanceButton);
             this.panel3.Controls.Add(this.labelBalance);
@@ -192,7 +196,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 109);
+            this.label2.Location = new System.Drawing.Point(12, 124);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 7;
@@ -210,7 +214,7 @@
             // labelMessageValue
             // 
             this.labelMessageValue.AutoSize = true;
-            this.labelMessageValue.Location = new System.Drawing.Point(91, 110);
+            this.labelMessageValue.Location = new System.Drawing.Point(91, 124);
             this.labelMessageValue.MaximumSize = new System.Drawing.Size(100, 0);
             this.labelMessageValue.Name = "labelMessageValue";
             this.labelMessageValue.Size = new System.Drawing.Size(0, 13);
@@ -522,6 +526,23 @@
             this.panel9.Size = new System.Drawing.Size(195, 224);
             this.panel9.TabIndex = 29;
             // 
+            // labelDepotVouherStatusInDepot
+            // 
+            this.labelDepotVouherStatusInDepot.AutoSize = true;
+            this.labelDepotVouherStatusInDepot.Location = new System.Drawing.Point(66, 114);
+            this.labelDepotVouherStatusInDepot.Name = "labelDepotVouherStatusInDepot";
+            this.labelDepotVouherStatusInDepot.Size = new System.Drawing.Size(0, 13);
+            this.labelDepotVouherStatusInDepot.TabIndex = 24;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(13, 114);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(51, 13);
+            this.label17.TabIndex = 23;
+            this.label17.Text = "In Depot:";
+            // 
             // labelDepotVoucherStatusAmount
             // 
             this.labelDepotVoucherStatusAmount.AutoSize = true;
@@ -559,22 +580,22 @@
             this.label19.TabIndex = 19;
             this.label19.Text = "Status";
             // 
-            // label17
+            // label20
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(13, 114);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(51, 13);
-            this.label17.TabIndex = 23;
-            this.label17.Text = "In Depot:";
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(12, 109);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(34, 13);
+            this.label20.TabIndex = 21;
+            this.label20.Text = "Total:";
             // 
-            // labelDepotVouherStatusInDepot
+            // labelTotalAmountValue
             // 
-            this.labelDepotVouherStatusInDepot.AutoSize = true;
-            this.labelDepotVouherStatusInDepot.Location = new System.Drawing.Point(66, 114);
-            this.labelDepotVouherStatusInDepot.Name = "labelDepotVouherStatusInDepot";
-            this.labelDepotVouherStatusInDepot.Size = new System.Drawing.Size(0, 13);
-            this.labelDepotVouherStatusInDepot.TabIndex = 24;
+            this.labelTotalAmountValue.AutoSize = true;
+            this.labelTotalAmountValue.Location = new System.Drawing.Point(90, 109);
+            this.labelTotalAmountValue.Name = "labelTotalAmountValue";
+            this.labelTotalAmountValue.Size = new System.Drawing.Size(0, 13);
+            this.labelTotalAmountValue.TabIndex = 22;
             // 
             // Form1
             // 
@@ -666,6 +687,8 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button buttonDepotVoucherStatus;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label labelTotalAmountValue;
 
     }
 }

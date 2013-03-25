@@ -19,6 +19,9 @@ namespace EGUMA
             [DataMember(Name = "balance_in_cents")]
             public int BalanceInCents { get; set; }
 
+            [DataMember(Name = "total_amount_in_cents")]
+            public int TotalAmountInCents { get; set; }
+
             [DataMember(Name = "message")]
             public string Message { get; set; }
 
