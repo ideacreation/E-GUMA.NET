@@ -27,6 +27,9 @@ namespace EGUMA
 
             [DataMember(Name = "is_redeemable")]
             public bool IsRedeemable { get; set; }
+
+            [DataMember(Name = "book_as_discount")]
+            public bool BookAsDiscount { get; set; }
         }
 
         [DataContract]

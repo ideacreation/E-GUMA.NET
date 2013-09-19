@@ -34,6 +34,8 @@
             this.redeemButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.labelTotalAmountValue = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.checkBalanceButton = new System.Windows.Forms.Button();
             this.labelBalance = new System.Windows.Forms.Label();
             this.labelBalanceValue = new System.Windows.Forms.Label();
@@ -78,8 +80,8 @@
             this.label18 = new System.Windows.Forms.Label();
             this.buttonDepotVoucherStatus = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.labelTotalAmountValue = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.labelBookAsDiscountValue = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -143,6 +145,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Controls.Add(this.labelBookAsDiscountValue);
+            this.panel3.Controls.Add(this.label21);
             this.panel3.Controls.Add(this.labelTotalAmountValue);
             this.panel3.Controls.Add(this.label20);
             this.panel3.Controls.Add(this.label10);
@@ -157,6 +161,23 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(180, 224);
             this.panel3.TabIndex = 25;
+            // 
+            // labelTotalAmountValue
+            // 
+            this.labelTotalAmountValue.AutoSize = true;
+            this.labelTotalAmountValue.Location = new System.Drawing.Point(90, 109);
+            this.labelTotalAmountValue.Name = "labelTotalAmountValue";
+            this.labelTotalAmountValue.Size = new System.Drawing.Size(0, 13);
+            this.labelTotalAmountValue.TabIndex = 22;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(12, 109);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(34, 13);
+            this.label20.TabIndex = 21;
+            this.label20.Text = "Total:";
             // 
             // checkBalanceButton
             // 
@@ -196,7 +217,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 124);
+            this.label2.Location = new System.Drawing.Point(12, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 7;
@@ -214,7 +235,7 @@
             // labelMessageValue
             // 
             this.labelMessageValue.AutoSize = true;
-            this.labelMessageValue.Location = new System.Drawing.Point(91, 124);
+            this.labelMessageValue.Location = new System.Drawing.Point(91, 141);
             this.labelMessageValue.MaximumSize = new System.Drawing.Size(100, 0);
             this.labelMessageValue.Name = "labelMessageValue";
             this.labelMessageValue.Size = new System.Drawing.Size(0, 13);
@@ -580,22 +601,23 @@
             this.label19.TabIndex = 19;
             this.label19.Text = "Status";
             // 
-            // label20
+            // label21
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(12, 109);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(34, 13);
-            this.label20.TabIndex = 21;
-            this.label20.Text = "Total:";
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(12, 124);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(89, 13);
+            this.label21.TabIndex = 23;
+            this.label21.Text = "BookAsDiscount:";
             // 
-            // labelTotalAmountValue
+            // labelBookAsDiscountValue
             // 
-            this.labelTotalAmountValue.AutoSize = true;
-            this.labelTotalAmountValue.Location = new System.Drawing.Point(90, 109);
-            this.labelTotalAmountValue.Name = "labelTotalAmountValue";
-            this.labelTotalAmountValue.Size = new System.Drawing.Size(0, 13);
-            this.labelTotalAmountValue.TabIndex = 22;
+            this.labelBookAsDiscountValue.AutoSize = true;
+            this.labelBookAsDiscountValue.Location = new System.Drawing.Point(104, 125);
+            this.labelBookAsDiscountValue.MaximumSize = new System.Drawing.Size(100, 0);
+            this.labelBookAsDiscountValue.Name = "labelBookAsDiscountValue";
+            this.labelBookAsDiscountValue.Size = new System.Drawing.Size(0, 13);
+            this.labelBookAsDiscountValue.TabIndex = 24;
             // 
             // Form1
             // 
@@ -689,6 +711,8 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label labelTotalAmountValue;
+        private System.Windows.Forms.Label labelBookAsDiscountValue;
+        private System.Windows.Forms.Label label21;
 
     }
 }
