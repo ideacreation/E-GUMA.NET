@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using EGUMA;
 
@@ -22,6 +23,7 @@ namespace E_GUMA.Example
             {
                 var result = _eguma.GetBalance(textBoxCode.Text);
 
+                labelCode.Text = result.Code;
                 labelIsRedeemable.Text = result.IsRedeemable ? "Yes" : "No";
                 labelBalanceValue.Text = Eguma.ConvertCentsToFrancs(result.BalanceInCents).ToString("F2");
                 labelTotalAmountValue.Text = Eguma.ConvertCentsToFrancs(result.TotalAmountInCents).ToString("F2");
@@ -143,6 +145,11 @@ namespace E_GUMA.Example
             {
                 textBoxCodeDepot.Text = System.Configuration.ConfigurationManager.AppSettings["ExampleDepotVoucherCode"];
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("http://www.e-guma.ch/developers/voucher2mobile-alias/");
         }
     }
 }
