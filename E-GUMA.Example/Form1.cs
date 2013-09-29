@@ -10,6 +10,8 @@ namespace E_GUMA.Example
         // Uses the api key of the user "demo" from the Beethoven Palace account
         private readonly Eguma _eguma = new Eguma("510e32c594d84816a4af9df0");
 
+        private string _redeemedVoucherDocumentUrl;
+
         public Form1()
         {
             InitializeComponent();
@@ -44,6 +46,9 @@ namespace E_GUMA.Example
 
                 var result = _eguma.Redeem(textBoxCode.Text, amountInCents);
                 labelNewBalance.Text = Eguma.ConvertCentsToFrancs(result.BalanceInCents).ToString("F2");
+
+                openVoucherDocumentButton.Visible = (result.BalanceInCents != 0);
+                _redeemedVoucherDocumentUrl = result.VoucherDocumentUrl;
 
             }
             catch (Exception exception)
@@ -150,6 +155,11 @@ namespace E_GUMA.Example
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("http://www.e-guma.ch/developers/voucher2mobile-alias/");
+        }
+
+        private void openVoucherDocumentButton_Click(object sender, EventArgs e)
+        {
+            Process.Start(_redeemedVoucherDocumentUrl);
         }
     }
 }

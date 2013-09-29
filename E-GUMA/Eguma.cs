@@ -40,6 +40,9 @@ namespace EGUMA
 
             [DataMember(Name = "balance_in_cents")]
             public int BalanceInCents { get; set; }
+
+            [DataMember(Name = "voucher_document_url")]
+            public string VoucherDocumentUrl { get; set; }
         }
 
         [DataContract]

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel4 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.textBoxCode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.redeemButton = new System.Windows.Forms.Button();
@@ -84,7 +85,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.buttonDepotVoucherStatus = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.openVoucherDocumentButton = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -106,6 +107,18 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(605, 49);
             this.panel4.TabIndex = 26;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.linkLabel1.Location = new System.Drawing.Point(168, 13);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(207, 24);
+            this.linkLabel1.TabIndex = 22;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "voucher2mobile - Alias:";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // textBoxCode
             // 
@@ -295,6 +308,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.openVoucherDocumentButton);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.redeemButton);
@@ -318,7 +332,7 @@
             // labelNewBalance
             // 
             this.labelNewBalance.AutoSize = true;
-            this.labelNewBalance.Location = new System.Drawing.Point(92, 129);
+            this.labelNewBalance.Location = new System.Drawing.Point(92, 140);
             this.labelNewBalance.Name = "labelNewBalance";
             this.labelNewBalance.Size = new System.Drawing.Size(0, 13);
             this.labelNewBalance.TabIndex = 14;
@@ -333,7 +347,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 129);
+            this.label5.Location = new System.Drawing.Point(13, 140);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 13);
             this.label5.TabIndex = 13;
@@ -642,17 +656,16 @@
             this.label19.TabIndex = 19;
             this.label19.Text = "Status";
             // 
-            // linkLabel1
+            // openVoucherDocumentButton
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.linkLabel1.Location = new System.Drawing.Point(168, 13);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(207, 24);
-            this.linkLabel1.TabIndex = 22;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "voucher2mobile - Alias:";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.openVoucherDocumentButton.Location = new System.Drawing.Point(14, 157);
+            this.openVoucherDocumentButton.Name = "openVoucherDocumentButton";
+            this.openVoucherDocumentButton.Size = new System.Drawing.Size(148, 23);
+            this.openVoucherDocumentButton.TabIndex = 27;
+            this.openVoucherDocumentButton.Text = "Open new voucher PDF";
+            this.openVoucherDocumentButton.UseVisualStyleBackColor = true;
+            this.openVoucherDocumentButton.Visible = false;
+            this.openVoucherDocumentButton.Click += new System.EventHandler(this.openVoucherDocumentButton_Click);
             // 
             // Form1
             // 
@@ -751,6 +764,7 @@
         private System.Windows.Forms.Label labelCode;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button openVoucherDocumentButton;
 
     }
 }
