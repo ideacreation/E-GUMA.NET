@@ -37,8 +37,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.labelCode = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.labelBookAsDiscountValue = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.labelTotalAmountValue = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.checkBalanceButton = new System.Windows.Forms.Button();
@@ -50,6 +48,7 @@
             this.labelMessageValue = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.openVoucherDocumentButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.labelNewBalance = new System.Windows.Forms.Label();
             this.textBoxAmountToRedeem = new System.Windows.Forms.TextBox();
@@ -85,7 +84,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.buttonDepotVoucherStatus = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
-            this.openVoucherDocumentButton = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -164,8 +162,6 @@
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel3.Controls.Add(this.labelCode);
             this.panel3.Controls.Add(this.label22);
-            this.panel3.Controls.Add(this.labelBookAsDiscountValue);
-            this.panel3.Controls.Add(this.label21);
             this.panel3.Controls.Add(this.labelTotalAmountValue);
             this.panel3.Controls.Add(this.label20);
             this.panel3.Controls.Add(this.label10);
@@ -197,24 +193,6 @@
             this.label22.Size = new System.Drawing.Size(35, 13);
             this.label22.TabIndex = 25;
             this.label22.Text = "Code:";
-            // 
-            // labelBookAsDiscountValue
-            // 
-            this.labelBookAsDiscountValue.AutoSize = true;
-            this.labelBookAsDiscountValue.Location = new System.Drawing.Point(104, 138);
-            this.labelBookAsDiscountValue.MaximumSize = new System.Drawing.Size(100, 0);
-            this.labelBookAsDiscountValue.Name = "labelBookAsDiscountValue";
-            this.labelBookAsDiscountValue.Size = new System.Drawing.Size(0, 13);
-            this.labelBookAsDiscountValue.TabIndex = 24;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(12, 137);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(89, 13);
-            this.label21.TabIndex = 23;
-            this.label21.Text = "BookAsDiscount:";
             // 
             // labelTotalAmountValue
             // 
@@ -271,7 +249,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 152);
+            this.label2.Location = new System.Drawing.Point(12, 138);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 7;
@@ -289,7 +267,7 @@
             // labelMessageValue
             // 
             this.labelMessageValue.AutoSize = true;
-            this.labelMessageValue.Location = new System.Drawing.Point(91, 154);
+            this.labelMessageValue.Location = new System.Drawing.Point(91, 138);
             this.labelMessageValue.MaximumSize = new System.Drawing.Size(100, 0);
             this.labelMessageValue.Name = "labelMessageValue";
             this.labelMessageValue.Size = new System.Drawing.Size(0, 13);
@@ -319,6 +297,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(182, 225);
             this.panel2.TabIndex = 24;
+            // 
+            // openVoucherDocumentButton
+            // 
+            this.openVoucherDocumentButton.Location = new System.Drawing.Point(14, 157);
+            this.openVoucherDocumentButton.Name = "openVoucherDocumentButton";
+            this.openVoucherDocumentButton.Size = new System.Drawing.Size(148, 23);
+            this.openVoucherDocumentButton.TabIndex = 27;
+            this.openVoucherDocumentButton.Text = "Open new voucher PDF";
+            this.openVoucherDocumentButton.UseVisualStyleBackColor = true;
+            this.openVoucherDocumentButton.Visible = false;
+            this.openVoucherDocumentButton.Click += new System.EventHandler(this.openVoucherDocumentButton_Click);
             // 
             // label4
             // 
@@ -656,17 +645,6 @@
             this.label19.TabIndex = 19;
             this.label19.Text = "Status";
             // 
-            // openVoucherDocumentButton
-            // 
-            this.openVoucherDocumentButton.Location = new System.Drawing.Point(14, 157);
-            this.openVoucherDocumentButton.Name = "openVoucherDocumentButton";
-            this.openVoucherDocumentButton.Size = new System.Drawing.Size(148, 23);
-            this.openVoucherDocumentButton.TabIndex = 27;
-            this.openVoucherDocumentButton.Text = "Open new voucher PDF";
-            this.openVoucherDocumentButton.UseVisualStyleBackColor = true;
-            this.openVoucherDocumentButton.Visible = false;
-            this.openVoucherDocumentButton.Click += new System.EventHandler(this.openVoucherDocumentButton_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -759,8 +737,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label labelTotalAmountValue;
-        private System.Windows.Forms.Label labelBookAsDiscountValue;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label labelCode;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.LinkLabel linkLabel1;

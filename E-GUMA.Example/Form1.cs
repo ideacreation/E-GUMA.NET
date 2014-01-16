@@ -30,7 +30,6 @@ namespace E_GUMA.Example
                 labelBalanceValue.Text = Eguma.ConvertCentsToFrancs(result.BalanceInCents).ToString("F2");
                 labelTotalAmountValue.Text = Eguma.ConvertCentsToFrancs(result.TotalAmountInCents).ToString("F2");
                 labelMessageValue.Text = result.Message;
-                labelBookAsDiscountValue.Text = result.BookAsDiscount.ToString();
             }
             catch (Exception exception)
             {
