@@ -109,14 +109,27 @@ namespace EGUMA
             return (int)(francs * 100);
         }
 
+        private WebClient CreateWebClient()
+        {
+            // is required when the client is behind a proxy with authentication
+            var proxy = WebRequest.GetSystemWebProxy();
+            proxy.Credentials = CredentialCache.DefaultNetworkCredentials;
+
+            return new WebClient
+                {
+                    Proxy = proxy
+                };
+        }
+
         public BalanceResult GetBalance(string voucherCode)
         {
-            using (var client = new WebClient())
+            using (var client = CreateWebClient())
             {
                 client.Encoding = Encoding.UTF8;
 
                 // example url: https://api.e-guma.ch/v1/vouchers/KSK3-L8VE-TSR5/balance.json?apikey=510e32c594d84816a4af9df0
                 var url = string.Format("{0}/v1/vouchers/{1}/balance.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
+
 
                 try
                 {
@@ -137,7 +150,7 @@ namespace EGUMA
 
         public RedeemResult Redeem(string voucherCode, int amountInCents)
         {
-            using (var client = new WebClient())
+            using (var client = CreateWebClient())
             {
                 client.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
                 var postData = string.Format("amount_in_cents={0}", amountInCents);
@@ -164,7 +177,7 @@ namespace EGUMA
 
         public CancelRedemptionResult CancelRedemption(string voucherCode, int amountInCents)
         {
-            using (var client = new WebClient())
+            using (var client = CreateWebClient())
             {
                 client.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
                 var postData = string.Format("amount_in_cents={0}", amountInCents);
@@ -191,7 +204,7 @@ namespace EGUMA
 
         public ActivateResult ActivateDepotVoucher(string voucherCode)
         {
-            using (var client = new WebClient())
+            using (var client = CreateWebClient())
             {
                 // example url: https://api.e-guma.ch/v1/vouchers/KSK3-L8VE-TSR5/activate.json?apikey=510e32c594d84816a4af9df0"
                 var url = string.Format("{0}/v1/vouchers/{1}/activate.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
@@ -216,7 +229,7 @@ namespace EGUMA
         // Only used for special implementations. Normally you should use 'ActivateDepotVoucher'
         public ActivateResult ActivateDepotVoucherWithCustomAmount(string voucherCode, int amountInCents)
         {
-            using (var client = new WebClient())
+            using (var client = CreateWebClient())
             {
                 client.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
                 var postData = string.Format("amount_in_cents={0}", amountInCents);
@@ -243,7 +256,7 @@ namespace EGUMA
 
         public DeactivateResult DeactivateDepotVoucher(string voucherCode)
         {
-            using (var client = new WebClient())
+            using (var client = CreateWebClient())
             {
                 // example url: https://api.e-guma.ch/v1/vouchers/KSK3-L8VE-TSR5/deactivate.json?apikey=510e32c594d84816a4af9df0"
                 var url = string.Format("{0}/v1/vouchers/{1}/deactivate.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
@@ -267,11 +280,11 @@ namespace EGUMA
 
         public DepotVoucherStatusResult GetDepotVoucherStatus(string voucherCode)
         {
-            using (var client = new WebClient())
+            using (var client = CreateWebClient())
             {
                 // example url: https://api.e-guma.ch/v1/vouchers/KSK3-L8VE-TSR5/depot_status.json?apikey=510e32c594d84816a4af9df0"
                 var url = string.Format("{0}/v1/vouchers/{1}/depot_status.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
-
+                
                 try
                 {
                     var resultAsJsonString = client.DownloadString(url);
