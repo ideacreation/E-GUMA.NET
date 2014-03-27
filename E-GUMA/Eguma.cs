@@ -83,6 +83,12 @@ namespace EGUMA
 
             [DataMember(Name = "is_in_depot")]
             public bool IsInDepot { get; set; }
+
+            [DataMember(Name = "can_be_activated")]
+            public bool CanBeActivated { get; set; }
+
+            [DataMember(Name = "can_be_deactivated")]
+            public bool CanBeDeactivated { get; set; }
         }
 
 

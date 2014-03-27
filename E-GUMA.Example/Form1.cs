@@ -8,7 +8,7 @@ namespace E_GUMA.Example
     public partial class Form1 : Form
     {
         // Uses the api key of the user "demo" from the Beethoven Palace account
-        private readonly Eguma _eguma = new Eguma("510e32c594d84816a4af9df0");
+        private readonly Eguma _eguma = new Eguma("52dfae97a412b51fb40f1fee");
 
         private string _redeemedVoucherDocumentUrl;
 
@@ -104,6 +104,8 @@ namespace E_GUMA.Example
                 var result = _eguma.GetDepotVoucherStatus(textBoxCodeDepot.Text);
                 labelDepotVoucherStatusAmount.Text = Eguma.ConvertCentsToFrancs(result.AmountInCents).ToString("F2");
                 labelDepotVouherStatusInDepot.Text = result.IsInDepot ? "Yes" : "No";
+                labelDepotVoucherStatusCanBeActivated.Text = result.CanBeActivated ? "Yes" : "No";
+                labelDepotVoucherStatusCanBeDeactivated.Text = result.CanBeDeactivated ? "Yes" : "No";
             }
             catch (Exception exception)
             {
@@ -159,6 +161,11 @@ namespace E_GUMA.Example
         private void openVoucherDocumentButton_Click(object sender, EventArgs e)
         {
             Process.Start(_redeemedVoucherDocumentUrl);
+        }
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
