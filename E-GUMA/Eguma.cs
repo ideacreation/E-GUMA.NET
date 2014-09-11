@@ -5,9 +5,32 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 using System.Text;
 
+// When you copy this file to your project, ensure that System.Runtime.Serialization is added as reference.
+
 namespace EGUMA
 {
-    // When you copy this file to your project, ensure that System.Runtime.Serialization is added as reference.
+    public static class JSONSerializer<TType> where TType : class
+    {
+        public static string Serialize(TType instance)
+        {
+            var serializer = new DataContractJsonSerializer(typeof(TType));
+            using (var stream = new MemoryStream())
+            {
+                serializer.WriteObject(stream, instance);
+                return Encoding.Default.GetString(stream.ToArray());
+            }
+        }
+
+        public static TType DeSerialize(string json)
+        {
+            using (var stream = new MemoryStream(Encoding.Default.GetBytes(json)))
+            {
+                var serializer = new DataContractJsonSerializer(typeof(TType));
+                return serializer.ReadObject(stream) as TType;
+            }
+        }
+    }
+    
     public class Eguma
     {
         [DataContract]
@@ -30,6 +53,13 @@ namespace EGUMA
         }
 
         [DataContract]
+        public class RedeemRequest
+        {
+            [DataMember(Name = "amount_in_cents")]
+            public int AmountInCents { get; set; }
+        }
+
+        [DataContract]
         public class RedeemResult
         {
             [DataMember(Name = "code")]
@@ -40,6 +70,13 @@ namespace EGUMA
 
             [DataMember(Name = "voucher_document_url")]
             public string VoucherDocumentUrl { get; set; }
+        }
+
+        [DataContract]
+        public class CancelRedemptionRequest
+        {
+            [DataMember(Name = "amount_in_cents")]
+            public int AmountInCents { get; set; }
         }
 
         [DataContract]
@@ -81,15 +118,14 @@ namespace EGUMA
             [DataMember(Name = "amount_in_cents")]
             public int AmountInCents { get; set; }
 
-            [DataMember(Name = "is_in_depot")]
-            public bool IsInDepot { get; set; }
-
             [DataMember(Name = "can_be_activated")]
             public bool CanBeActivated { get; set; }
 
             [DataMember(Name = "can_be_deactivated")]
             public bool CanBeDeactivated { get; set; }
         }
+
+
 
 
         public string BaseUrl { get; set; }
@@ -158,20 +194,20 @@ namespace EGUMA
         {
             using (var client = CreateWebClient())
             {
-                client.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
-                var postData = string.Format("amount_in_cents={0}", amountInCents);
+                client.Headers[HttpRequestHeader.ContentType] = "application/json";
 
                 // example url: https://api.e-guma.ch/v1/vouchers/KSK3-L8VE-TSR5/redeem.json?apikey=510e32c594d84816a4af9df0
                 var url = string.Format("{0}/v1/vouchers/{1}/redeem.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
 
                 try
                 {
-                    var resultAsJsonString = client.UploadString(url, postData);
+                    var resultAsJsonString = client.UploadString(url,
+                                                                 JSONSerializer<RedeemRequest>.Serialize(
+                                                                     new RedeemRequest {AmountInCents = amountInCents}));
 
-                    using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(resultAsJsonString)))
-                    {
-                        return (RedeemResult)new DataContractJsonSerializer(typeof(RedeemResult)).ReadObject(stream);
-                    }
+
+
+                    return JSONSerializer<RedeemResult>.DeSerialize(resultAsJsonString);
                 }
                 catch (WebException exception)
                 {
@@ -185,20 +221,18 @@ namespace EGUMA
         {
             using (var client = CreateWebClient())
             {
-                client.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
-                var postData = string.Format("amount_in_cents={0}", amountInCents);
-
+                client.Headers[HttpRequestHeader.ContentType] = "application/json";
+                
                 // example url: https://api.e-guma.ch/v1/vouchers/KSK3-L8VE-TSR5/cancel_redemption.json?apikey=510e32c594d84816a4af9df0"
                 var url = string.Format("{0}/v1/vouchers/{1}/cancel_redemption.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
 
                 try
                 {
-                    var resultAsJsonString = client.UploadString(url, postData);
+                    var resultAsJsonString = client.UploadString(url, JSONSerializer<CancelRedemptionRequest>.Serialize(
+                                                                     new CancelRedemptionRequest { AmountInCents = amountInCents }));
 
-                    using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(resultAsJsonString)))
-                    {
-                        return (CancelRedemptionResult)new DataContractJsonSerializer(typeof(CancelRedemptionResult)).ReadObject(stream);
-                    }
+
+                    return JSONSerializer<CancelRedemptionResult>.DeSerialize(resultAsJsonString);
                 }
                 catch (WebException exception)
                 {
@@ -219,38 +253,7 @@ namespace EGUMA
                 {
                     var resultAsJsonString = client.UploadString(url, string.Empty);
 
-                    using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(resultAsJsonString)))
-                    {
-                        return (ActivateResult)new DataContractJsonSerializer(typeof(ActivateResult)).ReadObject(stream);
-                    }
-                }
-                catch (WebException exception)
-                {
-                    HandleExceptions(exception);
-                    throw;
-                }
-            }
-        }
-
-        // Only used for special implementations. Normally you should use 'ActivateDepotVoucher'
-        public ActivateResult ActivateDepotVoucherWithCustomAmount(string voucherCode, int amountInCents)
-        {
-            using (var client = CreateWebClient())
-            {
-                client.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
-                var postData = string.Format("amount_in_cents={0}", amountInCents);
-
-                // example url: https://api.e-guma.ch/v1/vouchers/KSK3-L8VE-TSR5/activate.json?apikey=510e32c594d84816a4af9df0"
-                var url = string.Format("{0}/v1/vouchers/{1}/activate.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
-
-                try
-                {
-                    var resultAsJsonString = client.UploadString(url, postData);
-
-                    using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(resultAsJsonString)))
-                    {
-                        return (ActivateResult)new DataContractJsonSerializer(typeof(ActivateResult)).ReadObject(stream);
-                    }
+                    return JSONSerializer<ActivateResult>.DeSerialize(resultAsJsonString);
                 }
                 catch (WebException exception)
                 {
@@ -271,10 +274,7 @@ namespace EGUMA
                 {
                     var resultAsJsonString = client.UploadString(url, string.Empty);
 
-                    using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(resultAsJsonString)))
-                    {
-                        return (DeactivateResult)new DataContractJsonSerializer(typeof(DeactivateResult)).ReadObject(stream);
-                    }
+                    return JSONSerializer<DeactivateResult>.DeSerialize(resultAsJsonString);
                 }
                 catch (WebException exception)
                 {
@@ -295,12 +295,7 @@ namespace EGUMA
                 {
                     var resultAsJsonString = client.DownloadString(url);
 
-                    using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(resultAsJsonString)))
-                    {
-                        return
-                            (DepotVoucherStatusResult)
-                            new DataContractJsonSerializer(typeof (DepotVoucherStatusResult)).ReadObject(stream);
-                    }
+                    return JSONSerializer<DepotVoucherStatusResult>.DeSerialize(resultAsJsonString);
                 }
                 catch (WebException exception)
                 {

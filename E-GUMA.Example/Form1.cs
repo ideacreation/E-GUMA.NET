@@ -103,7 +103,6 @@ namespace E_GUMA.Example
             {
                 var result = _eguma.GetDepotVoucherStatus(textBoxCodeDepot.Text);
                 labelDepotVoucherStatusAmount.Text = Eguma.ConvertCentsToFrancs(result.AmountInCents).ToString("F2");
-                labelDepotVouherStatusInDepot.Text = result.IsInDepot ? "Yes" : "No";
                 labelDepotVoucherStatusCanBeActivated.Text = result.CanBeActivated ? "Yes" : "No";
                 labelDepotVoucherStatusCanBeDeactivated.Text = result.CanBeDeactivated ? "Yes" : "No";
             }

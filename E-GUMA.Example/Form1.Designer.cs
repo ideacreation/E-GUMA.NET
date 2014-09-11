@@ -78,16 +78,15 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.labelDepotVoucherStatusCanBeDeactivated = new System.Windows.Forms.Label();
             this.labelDepotVoucherStatusCanBeActivated = new System.Windows.Forms.Label();
             this.labelDepotVouherStatusInDepot = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.labelDepotVoucherStatusAmount = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.buttonDepotVoucherStatus = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -589,7 +588,6 @@
             this.panel9.Controls.Add(this.labelDepotVoucherStatusCanBeDeactivated);
             this.panel9.Controls.Add(this.labelDepotVoucherStatusCanBeActivated);
             this.panel9.Controls.Add(this.labelDepotVouherStatusInDepot);
-            this.panel9.Controls.Add(this.label17);
             this.panel9.Controls.Add(this.labelDepotVoucherStatusAmount);
             this.panel9.Controls.Add(this.label18);
             this.panel9.Controls.Add(this.buttonDepotVoucherStatus);
@@ -598,6 +596,15 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(195, 224);
             this.panel9.TabIndex = 29;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(14, 155);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(106, 13);
+            this.label23.TabIndex = 28;
+            this.label23.Text = "Can Be Deactivated:";
             // 
             // label21
             // 
@@ -632,15 +639,6 @@
             this.labelDepotVouherStatusInDepot.Size = new System.Drawing.Size(0, 13);
             this.labelDepotVouherStatusInDepot.TabIndex = 24;
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(13, 114);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(51, 13);
-            this.label17.TabIndex = 23;
-            this.label17.Text = "In Depot:";
-            // 
             // labelDepotVoucherStatusAmount
             // 
             this.labelDepotVoucherStatusAmount.AutoSize = true;
@@ -652,7 +650,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(15, 94);
+            this.label18.Location = new System.Drawing.Point(14, 94);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(46, 13);
             this.label18.TabIndex = 21;
@@ -677,15 +675,6 @@
             this.label19.Size = new System.Drawing.Size(60, 24);
             this.label19.TabIndex = 19;
             this.label19.Text = "Status";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(14, 155);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(106, 13);
-            this.label23.TabIndex = 28;
-            this.label23.Text = "Can Be Deactivated:";
             // 
             // Form1
             // 
@@ -772,7 +761,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label labelDepotVouherStatusInDepot;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label labelDepotVoucherStatusAmount;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button buttonDepotVoucherStatus;
