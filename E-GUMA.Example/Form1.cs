@@ -101,10 +101,10 @@ namespace E_GUMA.Example
         {
             try
             {
-                var result = _eguma.GetDepotVoucherStatus(textBoxCodeDepot.Text);
+                var result = _eguma.GetDepotVoucherActivateStatus(textBoxCodeDepot.Text);
                 labelDepotVoucherStatusAmount.Text = Eguma.ConvertCentsToFrancs(result.AmountInCents).ToString("F2");
                 labelDepotVoucherStatusCanBeActivated.Text = result.CanBeActivated ? "Yes" : "No";
-                labelDepotVoucherStatusCanBeDeactivated.Text = result.CanBeDeactivated ? "Yes" : "No";
+                labelDepotActivateStatusMessage.Text = result.Message;
             }
             catch (Exception exception)
             {
@@ -162,9 +162,20 @@ namespace E_GUMA.Example
             Process.Start(_redeemedVoucherDocumentUrl);
         }
 
-        private void label21_Click(object sender, EventArgs e)
+    
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                var result = _eguma.GetDepotVoucherDeactivateStatus(textBoxCodeDepot.Text);
+                labelDepotVoucherDeactivateStatusAmount.Text = Eguma.ConvertCentsToFrancs(result.AmountInCents).ToString("F2");
+                labelDepotVoucherDeactivateStatusCanBeDeactivated.Text = result.CanBeDeactivated ? "Yes" : "No";
+                labelDepotVoucherDeactivateStatusMessage.Text = result.Message;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
     }
 }
