@@ -255,28 +255,6 @@ namespace EGUMA
             }
         }
 
-
-        public DepotVoucherStatusResult GetDepotVoucherStatus(string voucherCode)
-        {
-            using (var client = CreateWebClient())
-            {
-                // example url: https://api.e-guma.ch/v1/vouchers/KSK3-L8VE-TSR5/depot_status.json?apikey=510e32c594d84816a4af9df0"
-                var url = string.Format("{0}/v1/vouchers/{1}/depot_status.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
-
-                try
-                {
-                    var resultAsJsonString = client.DownloadString(url);
-
-                    return JSONSerializer<DepotVoucherStatusResult>.DeSerialize(resultAsJsonString);
-                }
-                catch (WebException exception)
-                {
-                    HandleExceptions(exception);
-                    throw;
-                }
-            }
-        }
-
         public DepotVoucherActivateStatusResult GetDepotVoucherActivateStatus(string voucherCode)
         {
             using (var client = CreateWebClient())
@@ -302,8 +280,8 @@ namespace EGUMA
         {
             using (var client = CreateWebClient())
             {
-                // example url: https://api.e-guma.ch/v1/vouchers/KSK3-L8VE-TSR5/activate.json?apikey=510e32c594d84816a4af9df0"
-                var url = string.Format("{0}/v1/vouchers/{1}/activate.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
+                // example url: https://api.e-guma.ch/v1/depot_vouchers/KSK3-L8VE-TSR5/activate.json?apikey=510e32c594d84816a4af9df0"
+                var url = string.Format("{0}/v1/depot_vouchers/{1}/activate.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
 
                 try
                 {
@@ -344,8 +322,8 @@ namespace EGUMA
         {
             using (var client = CreateWebClient())
             {
-                // example url: https://api.e-guma.ch/v1/vouchers/KSK3-L8VE-TSR5/deactivate.json?apikey=510e32c594d84816a4af9df0"
-                var url = string.Format("{0}/v1/vouchers/{1}/deactivate.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
+                // example url: https://api.e-guma.ch/v1/depot_vouchers/KSK3-L8VE-TSR5/deactivate.json?apikey=510e32c594d84816a4af9df0"
+                var url = string.Format("{0}/v1/depot_vouchers/{1}/deactivate.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
 
                 try
                 {

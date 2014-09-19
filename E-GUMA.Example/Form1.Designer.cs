@@ -78,6 +78,9 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.labelDepotActivateStatusMessage = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.labelDepotVoucherStatusCanBeDeactivated = new System.Windows.Forms.Label();
@@ -87,10 +90,9 @@
             this.label18 = new System.Windows.Forms.Label();
             this.buttonDepotVoucherStatus = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.labelDepotActivateStatusMessage = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.labelDepotVoucherDeactivateStatusCanBeDeactivated = new System.Windows.Forms.Label();
+            this.labelDepotVoucherDeactivateStatusAmount = new System.Windows.Forms.Label();
             this.labelDepotVoucherDeactivateStatusMessage = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -103,8 +105,6 @@
             this.label34 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
-            this.labelDepotVoucherDeactivateStatusAmount = new System.Windows.Forms.Label();
-            this.labelDepotVoucherDeactivateStatusCanBeDeactivated = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -619,6 +619,31 @@
             this.panel9.Size = new System.Drawing.Size(195, 224);
             this.panel9.TabIndex = 29;
             // 
+            // labelDepotActivateStatusMessage
+            // 
+            this.labelDepotActivateStatusMessage.AutoSize = true;
+            this.labelDepotActivateStatusMessage.Location = new System.Drawing.Point(14, 144);
+            this.labelDepotActivateStatusMessage.Name = "labelDepotActivateStatusMessage";
+            this.labelDepotActivateStatusMessage.Size = new System.Drawing.Size(0, 13);
+            this.labelDepotActivateStatusMessage.TabIndex = 31;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(14, 128);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(53, 13);
+            this.label17.TabIndex = 30;
+            this.label17.Text = "Message:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(107, 130);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(0, 13);
+            this.label24.TabIndex = 29;
+            // 
             // label23
             // 
             this.label23.AutoSize = true;
@@ -697,32 +722,6 @@
             this.label19.TabIndex = 19;
             this.label19.Text = "Activate Status";
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(14, 128);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(53, 13);
-            this.label17.TabIndex = 30;
-            this.label17.Text = "Message:";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(107, 130);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(0, 13);
-            this.label24.TabIndex = 29;
-            // 
-            // labelDepotActivateStatusMessage
-            // 
-            this.labelDepotActivateStatusMessage.AutoSize = true;
-            this.labelDepotActivateStatusMessage.Location = new System.Drawing.Point(14, 144);
-            this.labelDepotActivateStatusMessage.Name = "labelDepotActivateStatusMessage";
-            this.labelDepotActivateStatusMessage.Size = new System.Drawing.Size(41, 13);
-            this.labelDepotActivateStatusMessage.TabIndex = 31;
-            this.labelDepotActivateStatusMessage.Text = "label25";
-            // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -745,14 +744,29 @@
             this.panel10.Size = new System.Drawing.Size(195, 224);
             this.panel10.TabIndex = 32;
             // 
+            // labelDepotVoucherDeactivateStatusCanBeDeactivated
+            // 
+            this.labelDepotVoucherDeactivateStatusCanBeDeactivated.AutoSize = true;
+            this.labelDepotVoucherDeactivateStatusCanBeDeactivated.Location = new System.Drawing.Point(118, 110);
+            this.labelDepotVoucherDeactivateStatusCanBeDeactivated.Name = "labelDepotVoucherDeactivateStatusCanBeDeactivated";
+            this.labelDepotVoucherDeactivateStatusCanBeDeactivated.Size = new System.Drawing.Size(0, 13);
+            this.labelDepotVoucherDeactivateStatusCanBeDeactivated.TabIndex = 33;
+            // 
+            // labelDepotVoucherDeactivateStatusAmount
+            // 
+            this.labelDepotVoucherDeactivateStatusAmount.AutoSize = true;
+            this.labelDepotVoucherDeactivateStatusAmount.Location = new System.Drawing.Point(60, 95);
+            this.labelDepotVoucherDeactivateStatusAmount.Name = "labelDepotVoucherDeactivateStatusAmount";
+            this.labelDepotVoucherDeactivateStatusAmount.Size = new System.Drawing.Size(0, 13);
+            this.labelDepotVoucherDeactivateStatusAmount.TabIndex = 32;
+            // 
             // labelDepotVoucherDeactivateStatusMessage
             // 
             this.labelDepotVoucherDeactivateStatusMessage.AutoSize = true;
             this.labelDepotVoucherDeactivateStatusMessage.Location = new System.Drawing.Point(14, 144);
             this.labelDepotVoucherDeactivateStatusMessage.Name = "labelDepotVoucherDeactivateStatusMessage";
-            this.labelDepotVoucherDeactivateStatusMessage.Size = new System.Drawing.Size(41, 13);
+            this.labelDepotVoucherDeactivateStatusMessage.Size = new System.Drawing.Size(0, 13);
             this.labelDepotVoucherDeactivateStatusMessage.TabIndex = 31;
-            this.labelDepotVoucherDeactivateStatusMessage.Text = "label25";
             // 
             // label26
             // 
@@ -848,24 +862,6 @@
             this.label35.Size = new System.Drawing.Size(151, 24);
             this.label35.TabIndex = 19;
             this.label35.Text = "Deactivate Status";
-            // 
-            // labelDepotVoucherDeactivateStatusAmount
-            // 
-            this.labelDepotVoucherDeactivateStatusAmount.AutoSize = true;
-            this.labelDepotVoucherDeactivateStatusAmount.Location = new System.Drawing.Point(60, 95);
-            this.labelDepotVoucherDeactivateStatusAmount.Name = "labelDepotVoucherDeactivateStatusAmount";
-            this.labelDepotVoucherDeactivateStatusAmount.Size = new System.Drawing.Size(41, 13);
-            this.labelDepotVoucherDeactivateStatusAmount.TabIndex = 32;
-            this.labelDepotVoucherDeactivateStatusAmount.Text = "label36";
-            // 
-            // labelDepotVoucherDeactivateStatusCanBeDeactivated
-            // 
-            this.labelDepotVoucherDeactivateStatusCanBeDeactivated.AutoSize = true;
-            this.labelDepotVoucherDeactivateStatusCanBeDeactivated.Location = new System.Drawing.Point(118, 110);
-            this.labelDepotVoucherDeactivateStatusCanBeDeactivated.Name = "labelDepotVoucherDeactivateStatusCanBeDeactivated";
-            this.labelDepotVoucherDeactivateStatusCanBeDeactivated.Size = new System.Drawing.Size(41, 13);
-            this.labelDepotVoucherDeactivateStatusCanBeDeactivated.TabIndex = 33;
-            this.labelDepotVoucherDeactivateStatusCanBeDeactivated.Text = "label25";
             // 
             // Form1
             // 
