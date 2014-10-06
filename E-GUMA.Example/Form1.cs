@@ -7,23 +7,38 @@ namespace E_GUMA.Example
 {
     public partial class Form1 : Form
     {
-        // Uses the api key of the user "demo" from the Beethoven Palace account
-        private readonly Eguma _eguma = new Eguma("52dfae97a412b51fb40f1fee");
-
-        private string _redeemedVoucherDocumentUrl;
-
         public Form1()
         {
             InitializeComponent();
 
-            OverrideDefaultSettings();
+            InitUi();
+        }
+
+        private void InitUi()
+        {
+            textBoxCode.Text = System.Configuration.ConfigurationManager.AppSettings["VoucherCode"];
+            textBoxCodeDepot.Text = System.Configuration.ConfigurationManager.AppSettings["DepotVoucherCode"];
+
+            Text += " | " + System.Configuration.ConfigurationManager.AppSettings["ApiBaseUrl"];
+        }
+
+        private Eguma CreateEguma()
+        {
+            var eguma = new Eguma(System.Configuration.ConfigurationManager.AppSettings["ApiKey"]);
+
+            if (!string.IsNullOrEmpty(System.Configuration.ConfigurationManager.AppSettings["ApiBaseUrl"]))
+            {
+                eguma.BaseUrl = System.Configuration.ConfigurationManager.AppSettings["ApiBaseUrl"];
+            }
+
+            return eguma;
         }
 
         private void checkBalanceButton_Click(object sender, EventArgs e)
         {
             try
             {
-                var result = _eguma.GetBalance(textBoxCode.Text);
+                var result = CreateEguma().GetBalance(textBoxCode.Text);
 
                 labelCode.Text = result.Code;
                 labelIsRedeemable.Text = result.IsRedeemable ? "Yes" : "No";
@@ -43,11 +58,9 @@ namespace E_GUMA.Example
             {
                 var amountInCents = Eguma.ConvertFrancsToCents(decimal.Parse(textBoxAmountToRedeem.Text));
 
-                var result = _eguma.Redeem(textBoxCode.Text, amountInCents);
+                var result = CreateEguma().Redeem(textBoxCode.Text, amountInCents);
                 labelNewBalance.Text = Eguma.ConvertCentsToFrancs(result.BalanceInCents).ToString("F2");
-
-                openVoucherDocumentButton.Visible = (result.BalanceInCents != 0);
-                _redeemedVoucherDocumentUrl = result.VoucherDocumentUrl;
+                labelRedeemCodeValue.Text = result.Code;
 
             }
             catch (Exception exception)
@@ -62,8 +75,9 @@ namespace E_GUMA.Example
             {
                 var amountInCents = Eguma.ConvertFrancsToCents(decimal.Parse(textBoxCancelRedemptionAmount.Text));
 
-                var result = _eguma.CancelRedemption(textBoxCode.Text, amountInCents);
+                var result = CreateEguma().CancelRedemption(textBoxCode.Text, amountInCents);
                 labelNewBalanceAfterCancelRedemption.Text = Eguma.ConvertCentsToFrancs(result.BalanceInCents).ToString("F2");
+                labelCancelRedemptionCodeValue.Text = result.Code;
             }
             catch (Exception exception)
             {
@@ -75,7 +89,7 @@ namespace E_GUMA.Example
         {
             try
             {
-                var result = _eguma.ActivateDepotVoucher(textBoxCodeDepot.Text);
+                var result = CreateEguma().ActivateDepotVoucher(textBoxCodeDepot.Text);
                 labelDepotActivateAmount.Text = Eguma.ConvertCentsToFrancs(result.AmountInCents).ToString("F2");
             }
             catch (Exception exception)
@@ -88,7 +102,7 @@ namespace E_GUMA.Example
         {
             try
             {
-                var result = _eguma.DeactivateDepotVoucher(textBoxCodeDepot.Text);
+                var result = CreateEguma().DeactivateDepotVoucher(textBoxCodeDepot.Text);
                 labelDepotDeactivateAmount.Text = Eguma.ConvertCentsToFrancs(result.AmountInCents).ToString("F2");
             }
             catch (Exception exception)
@@ -101,7 +115,7 @@ namespace E_GUMA.Example
         {
             try
             {
-                var result = _eguma.GetDepotVoucherActivateStatus(textBoxCodeDepot.Text);
+                var result = CreateEguma().GetDepotVoucherActivateStatus(textBoxCodeDepot.Text);
                 labelDepotVoucherStatusAmount.Text = Eguma.ConvertCentsToFrancs(result.AmountInCents).ToString("F2");
                 labelDepotVoucherStatusCanBeActivated.Text = result.CanBeActivated ? "Yes" : "No";
                 labelDepotActivateStatusMessage.Text = result.Message;
@@ -122,52 +136,16 @@ namespace E_GUMA.Example
             new RedeemVoucherForm().Show();
         }
 
-        // We only use this method when we want to test the E-GUMA API locally
-        private void OverrideDefaultSettings()
-        {
-            var useLocalApi = System.Configuration.ConfigurationManager.AppSettings["UseLocalApi"];
-            if (string.IsNullOrEmpty(useLocalApi) || useLocalApi != "true")
-                return;
-
-            Text += " - Connecting to local API";
-
-            if (!string.IsNullOrEmpty(System.Configuration.ConfigurationManager.AppSettings["ApiBaseUrl"]))
-            {
-                _eguma.BaseUrl = System.Configuration.ConfigurationManager.AppSettings["ApiBaseUrl"];
-            }
-
-            if (!string.IsNullOrEmpty(System.Configuration.ConfigurationManager.AppSettings["ApiKey"]))
-            {
-                _eguma.ApiKey = System.Configuration.ConfigurationManager.AppSettings["ApiKey"];
-            }
-
-            if (!string.IsNullOrEmpty(System.Configuration.ConfigurationManager.AppSettings["ExampleVoucherCode"]))
-            {
-                textBoxCode.Text = System.Configuration.ConfigurationManager.AppSettings["ExampleVoucherCode"];
-            }
-
-            if (!string.IsNullOrEmpty(System.Configuration.ConfigurationManager.AppSettings["ExampleDepotVoucherCode"]))
-            {
-                textBoxCodeDepot.Text = System.Configuration.ConfigurationManager.AppSettings["ExampleDepotVoucherCode"];
-            }
-        }
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("http://www.e-guma.ch/developers/voucher2mobile-alias/");
         }
-
-        private void openVoucherDocumentButton_Click(object sender, EventArgs e)
-        {
-            Process.Start(_redeemedVoucherDocumentUrl);
-        }
-
     
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                var result = _eguma.GetDepotVoucherDeactivateStatus(textBoxCodeDepot.Text);
+                var result = CreateEguma().GetDepotVoucherDeactivateStatus(textBoxCodeDepot.Text);
                 labelDepotVoucherDeactivateStatusAmount.Text = Eguma.ConvertCentsToFrancs(result.AmountInCents).ToString("F2");
                 labelDepotVoucherDeactivateStatusCanBeDeactivated.Text = result.CanBeDeactivated ? "Yes" : "No";
                 labelDepotVoucherDeactivateStatusMessage.Text = result.Message;
@@ -176,6 +154,11 @@ namespace E_GUMA.Example
             {
                 MessageBox.Show(exception.Message);
             }
+        }
+
+        private void labelMessageValue_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(labelMessageValue.Text);
         }
     }
 }

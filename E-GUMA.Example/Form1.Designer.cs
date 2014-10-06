@@ -48,7 +48,6 @@
             this.labelMessageValue = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.openVoucherDocumentButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.labelNewBalance = new System.Windows.Forms.Label();
             this.textBoxAmountToRedeem = new System.Windows.Forms.TextBox();
@@ -105,6 +104,10 @@
             this.label34 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.labelRedeemCodeValue = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.labelCancelRedemptionCodeValue = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -196,7 +199,7 @@
             this.panel3.Controls.Add(this.labelMessageValue);
             this.panel3.Location = new System.Drawing.Point(12, 67);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(196, 224);
+            this.panel3.Size = new System.Drawing.Size(207, 224);
             this.panel3.TabIndex = 25;
             // 
             // labelCode
@@ -294,6 +297,7 @@
             this.labelMessageValue.Name = "labelMessageValue";
             this.labelMessageValue.Size = new System.Drawing.Size(0, 13);
             this.labelMessageValue.TabIndex = 8;
+            this.labelMessageValue.Click += new System.EventHandler(this.labelMessageValue_Click);
             // 
             // label9
             // 
@@ -308,7 +312,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Controls.Add(this.openVoucherDocumentButton);
+            this.panel2.Controls.Add(this.labelRedeemCodeValue);
+            this.panel2.Controls.Add(this.label25);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.redeemButton);
@@ -317,19 +322,8 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(225, 67);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(182, 225);
+            this.panel2.Size = new System.Drawing.Size(206, 225);
             this.panel2.TabIndex = 24;
-            // 
-            // openVoucherDocumentButton
-            // 
-            this.openVoucherDocumentButton.Location = new System.Drawing.Point(14, 157);
-            this.openVoucherDocumentButton.Name = "openVoucherDocumentButton";
-            this.openVoucherDocumentButton.Size = new System.Drawing.Size(148, 23);
-            this.openVoucherDocumentButton.TabIndex = 27;
-            this.openVoucherDocumentButton.Text = "Open new voucher PDF";
-            this.openVoucherDocumentButton.UseVisualStyleBackColor = true;
-            this.openVoucherDocumentButton.Visible = false;
-            this.openVoucherDocumentButton.Click += new System.EventHandler(this.openVoucherDocumentButton_Click);
             // 
             // label4
             // 
@@ -420,15 +414,17 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.labelCancelRedemptionCodeValue);
+            this.panel1.Controls.Add(this.label36);
             this.panel1.Controls.Add(this.labelNewBalanceAfterCancelRedemption);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.buttonCancelRedemption);
             this.panel1.Controls.Add(this.textBoxCancelRedemptionAmount);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(422, 67);
+            this.panel1.Location = new System.Drawing.Point(438, 67);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(195, 225);
+            this.panel1.Size = new System.Drawing.Size(211, 225);
             this.panel1.TabIndex = 23;
             // 
             // panel5
@@ -584,7 +580,7 @@
             this.panel8.Controls.Add(this.label14);
             this.panel8.Controls.Add(this.buttonRedeemVoucher);
             this.panel8.Controls.Add(this.buttonOpenActivateDlg);
-            this.panel8.Location = new System.Drawing.Point(635, 67);
+            this.panel8.Location = new System.Drawing.Point(655, 67);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(185, 224);
             this.panel8.TabIndex = 31;
@@ -863,6 +859,40 @@
             this.label35.TabIndex = 19;
             this.label35.Text = "Deactivate Status";
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(13, 160);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(35, 13);
+            this.label25.TabIndex = 20;
+            this.label25.Text = "Code:";
+            // 
+            // labelRedeemCodeValue
+            // 
+            this.labelRedeemCodeValue.AutoSize = true;
+            this.labelRedeemCodeValue.Location = new System.Drawing.Point(95, 159);
+            this.labelRedeemCodeValue.Name = "labelRedeemCodeValue";
+            this.labelRedeemCodeValue.Size = new System.Drawing.Size(0, 13);
+            this.labelRedeemCodeValue.TabIndex = 21;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(13, 148);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(35, 13);
+            this.label36.TabIndex = 21;
+            this.label36.Text = "Code:";
+            // 
+            // labelCancelRedemptionCodeValue
+            // 
+            this.labelCancelRedemptionCodeValue.AutoSize = true;
+            this.labelCancelRedemptionCodeValue.Location = new System.Drawing.Point(88, 148);
+            this.labelCancelRedemptionCodeValue.Name = "labelCancelRedemptionCodeValue";
+            this.labelCancelRedemptionCodeValue.Size = new System.Drawing.Size(0, 13);
+            this.labelCancelRedemptionCodeValue.TabIndex = 22;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -960,7 +990,6 @@
         private System.Windows.Forms.Label labelCode;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Button openVoucherDocumentButton;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label labelDepotVoucherStatusCanBeDeactivated;
         private System.Windows.Forms.Label labelDepotVoucherStatusCanBeActivated;
@@ -983,6 +1012,10 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label labelRedeemCodeValue;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label labelCancelRedemptionCodeValue;
+        private System.Windows.Forms.Label label36;
 
     }
 }
