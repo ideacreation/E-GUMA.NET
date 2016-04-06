@@ -89,7 +89,17 @@ namespace E_GUMA.Example
         {
             try
             {
-                var result = CreateEguma().ActivateDepotVoucher(textBoxCodeDepot.Text);
+                Eguma.ActivateResult result;
+
+                if (string.IsNullOrEmpty(textBoxActivateFreeAmount.Text))
+                {
+                    result = CreateEguma().ActivateDepotVoucher(textBoxCodeDepot.Text);
+                }
+                else
+                {
+                    result = CreateEguma().ActivateDepotVoucherWithFreeAmount(textBoxCodeDepot.Text, Eguma.ConvertFrancsToCents(decimal.Parse(textBoxActivateFreeAmount.Text)));
+                }
+                
                 labelDepotActivateAmount.Text = Eguma.ConvertCentsToFrancs(result.AmountInCents).ToString("F2");
             }
             catch (Exception exception)
@@ -116,6 +126,7 @@ namespace E_GUMA.Example
             try
             {
                 var result = CreateEguma().GetDepotVoucherActivateStatus(textBoxCodeDepot.Text);
+                labelDepotVoucherStatusFreeAmount.Text = result.FreeAmount ? "Yes" : "No";
                 labelDepotVoucherStatusAmount.Text = Eguma.ConvertCentsToFrancs(result.AmountInCents).ToString("F2");
                 labelDepotVoucherStatusCanBeActivated.Text = result.CanBeActivated ? "Yes" : "No";
                 labelDepotActivateStatusMessage.Text = result.Message;

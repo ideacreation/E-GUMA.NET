@@ -103,6 +103,16 @@ namespace EGUMA
 
             [DataMember(Name = "message")]
             public string Message { get; set; }
+
+            [DataMember(Name = "free_amount")]
+            public bool FreeAmount { get; set; }
+        }
+
+        [DataContract]
+        public class ActivateRequest
+        {
+            [DataMember(Name = "amount_in_cents")]
+            public int AmountInCents { get; set; }
         }
 
         [DataContract]
@@ -286,6 +296,31 @@ namespace EGUMA
                 try
                 {
                     var resultAsJsonString = client.UploadString(url, string.Empty);
+
+                    return JSONSerializer<ActivateResult>.DeSerialize(resultAsJsonString);
+                }
+                catch (WebException exception)
+                {
+                    HandleExceptions(exception);
+                    throw;
+                }
+            }
+        }
+
+        public ActivateResult ActivateDepotVoucherWithFreeAmount(string voucherCode, int amountInCents)
+        {
+            using (var client = CreateWebClient())
+            {
+                client.Headers[HttpRequestHeader.ContentType] = "application/json";
+
+                // example url: https://api.e-guma.ch/v1/depot_vouchers/KSK3-L8VE-TSR5/activate.json?apikey=510e32c594d84816a4af9df0"
+                var url = string.Format("{0}/v1/depot_vouchers/{1}/activate.json?apikey={2}", BaseUrl, voucherCode, ApiKey);
+
+                try
+                {
+                    var resultAsJsonString = client.UploadString(url,
+                                             JSONSerializer<ActivateRequest>.Serialize(
+                                                 new ActivateRequest { AmountInCents = amountInCents }));
 
                     return JSONSerializer<ActivateResult>.DeSerialize(resultAsJsonString);
                 }

@@ -48,6 +48,8 @@
             this.labelMessageValue = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.labelRedeemCodeValue = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.labelNewBalance = new System.Windows.Forms.Label();
             this.textBoxAmountToRedeem = new System.Windows.Forms.TextBox();
@@ -59,6 +61,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelCancelRedemptionCodeValue = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.labelDepotActivateAmount = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -77,6 +81,8 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.labelDepotVoucherStatusFreeAmount = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
             this.labelDepotActivateStatusMessage = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -104,10 +110,8 @@
             this.label34 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.labelRedeemCodeValue = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.labelCancelRedemptionCodeValue = new System.Windows.Forms.Label();
+            this.textBoxActivateFreeAmount = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -325,14 +329,31 @@
             this.panel2.Size = new System.Drawing.Size(206, 225);
             this.panel2.TabIndex = 24;
             // 
+            // labelRedeemCodeValue
+            // 
+            this.labelRedeemCodeValue.AutoSize = true;
+            this.labelRedeemCodeValue.Location = new System.Drawing.Point(95, 159);
+            this.labelRedeemCodeValue.Name = "labelRedeemCodeValue";
+            this.labelRedeemCodeValue.Size = new System.Drawing.Size(0, 13);
+            this.labelRedeemCodeValue.TabIndex = 21;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(13, 160);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(35, 13);
+            this.label25.TabIndex = 20;
+            this.label25.Text = "Code:";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(13, 52);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 13);
+            this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 12;
-            this.label4.Text = "Amount (CHF):";
+            this.label4.Text = "Amount:";
             // 
             // labelNewBalance
             // 
@@ -407,9 +428,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 49);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 13);
+            this.label6.Size = new System.Drawing.Size(46, 13);
             this.label6.TabIndex = 16;
-            this.label6.Text = "Amount (CHF):";
+            this.label6.Text = "Amount:";
             // 
             // panel1
             // 
@@ -427,9 +448,28 @@
             this.panel1.Size = new System.Drawing.Size(211, 225);
             this.panel1.TabIndex = 23;
             // 
+            // labelCancelRedemptionCodeValue
+            // 
+            this.labelCancelRedemptionCodeValue.AutoSize = true;
+            this.labelCancelRedemptionCodeValue.Location = new System.Drawing.Point(88, 148);
+            this.labelCancelRedemptionCodeValue.Name = "labelCancelRedemptionCodeValue";
+            this.labelCancelRedemptionCodeValue.Size = new System.Drawing.Size(0, 13);
+            this.labelCancelRedemptionCodeValue.TabIndex = 22;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(13, 148);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(35, 13);
+            this.label36.TabIndex = 21;
+            this.label36.Text = "Code:";
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel5.Controls.Add(this.label38);
+            this.panel5.Controls.Add(this.textBoxActivateFreeAmount);
             this.panel5.Controls.Add(this.labelDepotActivateAmount);
             this.panel5.Controls.Add(this.label13);
             this.panel5.Controls.Add(this.buttonActivate);
@@ -442,7 +482,7 @@
             // labelDepotActivateAmount
             // 
             this.labelDepotActivateAmount.AutoSize = true;
-            this.labelDepotActivateAmount.Location = new System.Drawing.Point(67, 94);
+            this.labelDepotActivateAmount.Location = new System.Drawing.Point(67, 128);
             this.labelDepotActivateAmount.Name = "labelDepotActivateAmount";
             this.labelDepotActivateAmount.Size = new System.Drawing.Size(0, 13);
             this.labelDepotActivateAmount.TabIndex = 22;
@@ -450,7 +490,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(17, 94);
+            this.label13.Location = new System.Drawing.Point(17, 128);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(46, 13);
             this.label13.TabIndex = 21;
@@ -458,7 +498,7 @@
             // 
             // buttonActivate
             // 
-            this.buttonActivate.Location = new System.Drawing.Point(16, 57);
+            this.buttonActivate.Location = new System.Drawing.Point(16, 97);
             this.buttonActivate.Name = "buttonActivate";
             this.buttonActivate.Size = new System.Drawing.Size(75, 23);
             this.buttonActivate.TabIndex = 20;
@@ -598,6 +638,8 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel9.Controls.Add(this.labelDepotVoucherStatusFreeAmount);
+            this.panel9.Controls.Add(this.label37);
             this.panel9.Controls.Add(this.labelDepotActivateStatusMessage);
             this.panel9.Controls.Add(this.label17);
             this.panel9.Controls.Add(this.label24);
@@ -615,6 +657,23 @@
             this.panel9.Size = new System.Drawing.Size(195, 224);
             this.panel9.TabIndex = 29;
             // 
+            // labelDepotVoucherStatusFreeAmount
+            // 
+            this.labelDepotVoucherStatusFreeAmount.AutoSize = true;
+            this.labelDepotVoucherStatusFreeAmount.Location = new System.Drawing.Point(83, 94);
+            this.labelDepotVoucherStatusFreeAmount.Name = "labelDepotVoucherStatusFreeAmount";
+            this.labelDepotVoucherStatusFreeAmount.Size = new System.Drawing.Size(0, 13);
+            this.labelDepotVoucherStatusFreeAmount.TabIndex = 33;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(14, 94);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(70, 13);
+            this.label37.TabIndex = 32;
+            this.label37.Text = "Free Amount:";
+            // 
             // labelDepotActivateStatusMessage
             // 
             this.labelDepotActivateStatusMessage.AutoSize = true;
@@ -626,7 +685,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(14, 128);
+            this.label17.Location = new System.Drawing.Point(14, 146);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(53, 13);
             this.label17.TabIndex = 30;
@@ -635,7 +694,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(107, 130);
+            this.label24.Location = new System.Drawing.Point(107, 148);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(0, 13);
             this.label24.TabIndex = 29;
@@ -651,7 +710,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(14, 110);
+            this.label21.Location = new System.Drawing.Point(14, 128);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(93, 13);
             this.label21.TabIndex = 27;
@@ -660,7 +719,7 @@
             // labelDepotVoucherStatusCanBeDeactivated
             // 
             this.labelDepotVoucherStatusCanBeDeactivated.AutoSize = true;
-            this.labelDepotVoucherStatusCanBeDeactivated.Location = new System.Drawing.Point(122, 156);
+            this.labelDepotVoucherStatusCanBeDeactivated.Location = new System.Drawing.Point(122, 174);
             this.labelDepotVoucherStatusCanBeDeactivated.Name = "labelDepotVoucherStatusCanBeDeactivated";
             this.labelDepotVoucherStatusCanBeDeactivated.Size = new System.Drawing.Size(0, 13);
             this.labelDepotVoucherStatusCanBeDeactivated.TabIndex = 26;
@@ -668,7 +727,7 @@
             // labelDepotVoucherStatusCanBeActivated
             // 
             this.labelDepotVoucherStatusCanBeActivated.AutoSize = true;
-            this.labelDepotVoucherStatusCanBeActivated.Location = new System.Drawing.Point(109, 112);
+            this.labelDepotVoucherStatusCanBeActivated.Location = new System.Drawing.Point(109, 130);
             this.labelDepotVoucherStatusCanBeActivated.Name = "labelDepotVoucherStatusCanBeActivated";
             this.labelDepotVoucherStatusCanBeActivated.Size = new System.Drawing.Size(0, 13);
             this.labelDepotVoucherStatusCanBeActivated.TabIndex = 25;
@@ -676,7 +735,7 @@
             // labelDepotVouherStatusInDepot
             // 
             this.labelDepotVouherStatusInDepot.AutoSize = true;
-            this.labelDepotVouherStatusInDepot.Location = new System.Drawing.Point(66, 114);
+            this.labelDepotVouherStatusInDepot.Location = new System.Drawing.Point(66, 132);
             this.labelDepotVouherStatusInDepot.Name = "labelDepotVouherStatusInDepot";
             this.labelDepotVouherStatusInDepot.Size = new System.Drawing.Size(0, 13);
             this.labelDepotVouherStatusInDepot.TabIndex = 24;
@@ -684,7 +743,7 @@
             // labelDepotVoucherStatusAmount
             // 
             this.labelDepotVoucherStatusAmount.AutoSize = true;
-            this.labelDepotVoucherStatusAmount.Location = new System.Drawing.Point(67, 94);
+            this.labelDepotVoucherStatusAmount.Location = new System.Drawing.Point(67, 112);
             this.labelDepotVoucherStatusAmount.Name = "labelDepotVoucherStatusAmount";
             this.labelDepotVoucherStatusAmount.Size = new System.Drawing.Size(0, 13);
             this.labelDepotVoucherStatusAmount.TabIndex = 22;
@@ -692,7 +751,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(14, 94);
+            this.label18.Location = new System.Drawing.Point(14, 112);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(46, 13);
             this.label18.TabIndex = 21;
@@ -859,39 +918,21 @@
             this.label35.TabIndex = 19;
             this.label35.Text = "Deactivate Status";
             // 
-            // label25
+            // textBoxActivateFreeAmount
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(13, 160);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(35, 13);
-            this.label25.TabIndex = 20;
-            this.label25.Text = "Code:";
+            this.textBoxActivateFreeAmount.Location = new System.Drawing.Point(16, 73);
+            this.textBoxActivateFreeAmount.Name = "textBoxActivateFreeAmount";
+            this.textBoxActivateFreeAmount.Size = new System.Drawing.Size(73, 20);
+            this.textBoxActivateFreeAmount.TabIndex = 23;
             // 
-            // labelRedeemCodeValue
+            // label38
             // 
-            this.labelRedeemCodeValue.AutoSize = true;
-            this.labelRedeemCodeValue.Location = new System.Drawing.Point(95, 159);
-            this.labelRedeemCodeValue.Name = "labelRedeemCodeValue";
-            this.labelRedeemCodeValue.Size = new System.Drawing.Size(0, 13);
-            this.labelRedeemCodeValue.TabIndex = 21;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(13, 148);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(35, 13);
-            this.label36.TabIndex = 21;
-            this.label36.Text = "Code:";
-            // 
-            // labelCancelRedemptionCodeValue
-            // 
-            this.labelCancelRedemptionCodeValue.AutoSize = true;
-            this.labelCancelRedemptionCodeValue.Location = new System.Drawing.Point(88, 148);
-            this.labelCancelRedemptionCodeValue.Name = "labelCancelRedemptionCodeValue";
-            this.labelCancelRedemptionCodeValue.Size = new System.Drawing.Size(0, 13);
-            this.labelCancelRedemptionCodeValue.TabIndex = 22;
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(17, 56);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(67, 13);
+            this.label38.TabIndex = 24;
+            this.label38.Text = "FreeAmount:";
             // 
             // Form1
             // 
@@ -1016,6 +1057,10 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label labelCancelRedemptionCodeValue;
         private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label labelDepotVoucherStatusFreeAmount;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TextBox textBoxActivateFreeAmount;
 
     }
 }
