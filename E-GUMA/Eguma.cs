@@ -70,6 +70,9 @@ namespace EGUMA
 
             [DataMember(Name = "voucher_document_url")]
             public string VoucherDocumentUrl { get; set; }
+
+            [DataMember(Name = "redeem_token")]
+            public string RedeemToken { get; set; }
         }
 
         [DataContract]
@@ -77,6 +80,9 @@ namespace EGUMA
         {
             [DataMember(Name = "amount_in_cents")]
             public int AmountInCents { get; set; }
+
+            [DataMember(Name = "redeem_token")]
+            public int RedeemToken { get; set; }
         }
 
         [DataContract]
