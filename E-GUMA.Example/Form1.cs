@@ -61,6 +61,8 @@ namespace E_GUMA.Example
                 var result = CreateEguma().Redeem(textBoxCode.Text, amountInCents);
                 labelNewBalance.Text = Eguma.ConvertCentsToFrancs(result.BalanceInCents).ToString("F2");
                 labelRedeemCodeValue.Text = result.Code;
+                labelRedeemToken.Text = result.RedeemToken;
+                textBoxCancelRedemptionToken.Text = result.RedeemToken;
 
             }
             catch (Exception exception)
@@ -75,7 +77,7 @@ namespace E_GUMA.Example
             {
                 var amountInCents = Eguma.ConvertFrancsToCents(decimal.Parse(textBoxCancelRedemptionAmount.Text));
 
-                var result = CreateEguma().CancelRedemption(textBoxCode.Text, amountInCents);
+                var result = CreateEguma().CancelRedemption(textBoxCode.Text, amountInCents, textBoxCancelRedemptionToken.Text);
                 labelNewBalanceAfterCancelRedemption.Text = Eguma.ConvertCentsToFrancs(result.BalanceInCents).ToString("F2");
                 labelCancelRedemptionCodeValue.Text = result.Code;
             }
@@ -170,6 +172,11 @@ namespace E_GUMA.Example
         private void labelMessageValue_Click(object sender, EventArgs e)
         {
             MessageBox.Show(labelMessageValue.Text);
+        }
+
+        private void labelRedeemToken_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(labelRedeemToken.Text);
         }
     }
 }
