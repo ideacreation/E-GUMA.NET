@@ -82,7 +82,7 @@ namespace EGUMA
             public int AmountInCents { get; set; }
 
             [DataMember(Name = "redeem_token")]
-            public int RedeemToken { get; set; }
+            public string RedeemToken { get; set; }
         }
 
         [DataContract]
@@ -246,7 +246,7 @@ namespace EGUMA
             }
         }
 
-        public CancelRedemptionResult CancelRedemption(string voucherCode, int amountInCents)
+        public CancelRedemptionResult CancelRedemption(string voucherCode, int amountInCents, string redeemToken)
         {
             using (var client = CreateWebClient())
             {
@@ -258,7 +258,7 @@ namespace EGUMA
                 try
                 {
                     var resultAsJsonString = client.UploadString(url, JSONSerializer<CancelRedemptionRequest>.Serialize(
-                                                                     new CancelRedemptionRequest { AmountInCents = amountInCents }));
+                                                                     new CancelRedemptionRequest { AmountInCents = amountInCents, RedeemToken = redeemToken }));
 
 
                     return JSONSerializer<CancelRedemptionResult>.DeSerialize(resultAsJsonString);
